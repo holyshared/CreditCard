@@ -1,3 +1,9 @@
 .DS_Store
 packages
 
+CreditCard/bin/*
+CreditCard/obj/*
+
+CreditCardTest/bin/*
+CreditCardTest/obj/*
+
