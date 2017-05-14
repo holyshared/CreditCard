@@ -1,13 +1,9 @@
 ﻿<Properties StartupConfiguration="{C7499777-A57A-41A3-92B6-3641AD388F60}|単体テスト">
-  <MonoDevelop.Ide.Workbench ActiveDocument="状態: fsharp-example">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CreditCard/CreditCard.fs">
     <Files>
-      <File FileName="CreditCard/CreditCard.fs" Line="15" Column="23" />
+      <File FileName="CreditCardTest/packages.config" Line="4" Column="8" />
       <File FileName="CreditCardTest/Test.cs" Line="30" Column="1" />
-      <File FileName="CreditCardTest/packages.config" Line="4" Column="7" />
-      <File FileName="CreditCard/AssemblyInfo.fs" Line="21" Column="1" />
-      <File FileName="CreditCard/Script.fsx" Line="6" Column="1" />
-      <File FileName="CreditCard/packages.config" Line="5" Column="12" />
-      <File FileName="状態: fsharp-example" />
+      <File FileName="CreditCard/CreditCard.fs" Line="25" Column="5" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
