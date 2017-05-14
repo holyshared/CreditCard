@@ -8,7 +8,7 @@ after_build:
 artifacts:
   - path: 'CreditCard\**\*.nupkg'
     name: NuGet package
-  - path: 'CreditCard\bin\Release\**\*.dll'
+  - path: 'CreditCard\bin\Release\**\CreditCard.dll'
     name: Dynamic link library
 
 nuget:
