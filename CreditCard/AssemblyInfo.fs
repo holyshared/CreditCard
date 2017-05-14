@@ -3,9 +3,9 @@ open System.Reflection
 open System.Runtime.CompilerServices
 
 [<assembly: AssemblyTitle("CreditCard")>]
-[<assembly: AssemblyDescription("")>]
+[<assembly: AssemblyDescription("Credit card detection")>]
 [<assembly: AssemblyConfiguration("")>]
-[<assembly: AssemblyCompany("")>]
+[<assembly: AssemblyCompany("Noritaka Horio")>]
 [<assembly: AssemblyProduct("")>]
 [<assembly: AssemblyCopyright("${AuthorCopyright}")>]
 [<assembly: AssemblyTrademark("")>]
