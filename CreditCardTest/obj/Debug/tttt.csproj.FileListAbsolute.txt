@@ -1,7 +1,0 @@
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/bin/Debug/tttt.dll
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/bin/Debug/tttt.pdb
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/bin/Debug/nunit.framework.dll
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/bin/Debug/nunit.framework.xml
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/obj/Debug/tttt.csproj.CoreCompileInputs.cache
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/obj/Debug/tttt.dll
-/Users/holyshared/Documents/projects/fsharp-example/CreditCard/tttt/obj/Debug/tttt.pdb
