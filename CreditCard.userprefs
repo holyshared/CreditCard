@@ -1,5 +1,10 @@
 ﻿<Properties StartupConfiguration="{C7499777-A57A-41A3-92B6-3641AD388F60}|単体テスト">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CreditCardTest/Test.cs">
+    <Files>
+      <File FileName="CreditCard/Component1.fs" Line="13" Column="26" />
+      <File FileName="CreditCardTest/Test.cs" Line="23" Column="1" />
+      <File FileName="CreditCardTest/packages.config" Line="4" Column="8" />
+    </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
