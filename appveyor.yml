@@ -1,0 +1,16 @@
+configuration: Release
+
+before_build:
+  - nuget restore
+after_build:
+  - nuget pack CreditCard/CreditCard.fsproj -symbols -properties Configuration=Release -outputdirectory ./CreditCard
+
+artifacts:
+  - path: 'CreditCard\**\*.nupkg'
+    name: NuGet package
+  - path: 'CreditCard\bin\Release\**\*.dll'
+    name: Dynamic link library
+
+nuget:
+  account_feed: true
+  project_feed: true
