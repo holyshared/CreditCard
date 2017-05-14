@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Component1.fs" />
+    <Compile Include="CreditCard.fs" />
     <Compile Include="Script.fsx" />
     <None Include="packages.config" />
   </ItemGroup>
