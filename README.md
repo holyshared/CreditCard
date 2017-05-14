@@ -11,8 +11,20 @@
 1. Installing NuGet & Mono Framework
 
 		brew install mono
-		brew install nuget
+
+		mkdir ~/bin
+		cd bin
+		wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+2. Build projects
+
+		xbuild /p:Configuration=Release CreditCard.sln
 
 2. Build NuGet package
 
-		mono [nuget.exe path] pack CreditCard/CreditCard.fsproj -properties Configuration=Release
+		mono ~/bin/nuget.exe pack CreditCard/CreditCard.fsproj -properties Configuration=Release
+
+or 
+
+	make setup
+	make build
