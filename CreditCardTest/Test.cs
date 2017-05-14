@@ -16,7 +16,7 @@ namespace CreditCard.UnitTest
         [Test()]
 		public void TestMasterCardMatches()
 		{
-            Assert.IsTrue(CreditCard.VISA.matches("5***************"));
+            Assert.IsTrue(CreditCard.MasterCard.matches("5***************"));
 		}
 	}
 }
