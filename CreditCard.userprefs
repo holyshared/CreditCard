@@ -1,24 +1,5 @@
-﻿<Properties StartupConfiguration="{C7499777-A57A-41A3-92B6-3641AD388F60}|単体テスト">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CreditCardTest/Test.cs">
-    <Files>
-      <File FileName="CreditCardTest/Test.cs" Line="47" Column="1" />
-    </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="CreditCard" expanded="True" selected="True">
-            <Node name="CreditCardTest" expanded="True">
-              <Node name="CreditCard" expanded="True">
-                <Node name="UnitTest" expanded="True">
-                  <Node name="Test" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{1E615D30-32D2-41B9-A8BE-754B6082CC8D}|単体テスト">
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
