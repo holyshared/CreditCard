@@ -1,5 +1,14 @@
 ﻿<Properties StartupConfiguration="{1E615D30-32D2-41B9-A8BE-754B6082CC8D}|単体テスト">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="状態: fsharp-example">
+    <Files>
+      <File FileName="CreditCard/CreditCard.fs" Line="39" Column="5" />
+      <File FileName="CreditCardTest/CreditCardTest.fs" Line="12" Column="9" />
+      <File FileName="CreditCard/Spec.fs" Line="43" Column="1" />
+      <File FileName="CreditCardTest/SpecTest.fs" Line="22" Column="5" />
+      <File FileName="CreditCard/packages.config" Line="1" Column="1" />
+      <File FileName="状態: fsharp-example" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

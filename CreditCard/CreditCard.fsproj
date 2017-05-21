@@ -49,6 +49,7 @@
     <Compile Include="CreditCard.fs" />
     <Compile Include="Script.fsx" />
     <None Include="packages.config" />
+    <Compile Include="Spec.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
 </Project>

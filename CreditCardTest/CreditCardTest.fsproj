@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="CreditCardTest.fs" />
     <None Include="packages.config" />
+    <Compile Include="SpecTest.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
 </Project>
