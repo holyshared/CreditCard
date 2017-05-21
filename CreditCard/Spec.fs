@@ -15,7 +15,7 @@ module Spec =
       s.StartsWith prefix
 
   module PrefixRange =
-    type t = NumberRange -> Number -> bool
+    type t = NumberRange -> int ->  Number -> bool
     let Matches (range: NumberRange) (len: int) (s: Number) =
       let prefix = (int) (s.[0..len-1])
       range.Matches(prefix)
