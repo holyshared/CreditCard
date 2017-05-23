@@ -13,6 +13,8 @@ module Spec =
     type t = string -> Number -> bool
     let Matches (prefix: string) (s: Number) =
       s.StartsWith prefix
+    let OfPrefixes(prefixes: string list) =
+      List.map (fun prefix -> Matches prefix) prefixes
 
   module PrefixRange =
     type t = NumberRange -> int ->  Number -> bool
@@ -25,27 +27,22 @@ module Spec =
     | PrefixSpec of Prefix.t
     | PrefixRangeSpec of PrefixRange.t
 
-  module VISA =
-    let spec =
-      [Prefix.Matches "4"]
+  type Matcher = Number -> bool
 
-  module MasterCard =
-    let spec =
-      [Prefix.Matches "5"]
+  type IBrand =
+    abstract member Name : unit -> string
+    abstract member Matches : Number -> bool
 
-  module AmericanExpress =
-    let spec =
-      [Prefix.Matches "34"; Prefix.Matches "37"]
+  let AD = List.append (Prefix.OfPrefixes ["3095"; "36"]) []
 
-  module JCB =
-    let spec =
-      [PrefixRange.Matches (NumberRange(3528, 3589)) 4]
+  let MakeCardBrand (name: string) (spec: Matcher list) = {
+    new IBrand with
+      member this.Name() = name
+      member this.Matches(s: Number) = true
+  }
 
-  module DinersClub =
-    let spec =
-      [
-        Prefix.Matches "3095";
-        Prefix.Matches "36";
-        PrefixRange.Matches (NumberRange(300, 300)) 3;
-        PrefixRange.Matches (NumberRange(38, 39)) 2;
-      ]
+  let VISA = MakeCardBrand "VISA" [Prefix.Matches "4"]
+  let MasterCard = MakeCardBrand "MakeCard" [Prefix.Matches "5"]
+  let AmericanExpress = MakeCardBrand "Amex" (Prefix.OfPrefixes ["34"; "37"])
+  let JCB = MakeCardBrand "JCB" [PrefixRange.Matches (NumberRange(3528, 3589)) 4]
+  let DinersClub = MakeCardBrand "Diners Club" (List.append (Prefix.OfPrefixes ["3095"; "36"]) [PrefixRange.Matches (NumberRange(300, 300)) 3; PrefixRange.Matches (NumberRange(38, 39)) 2])
