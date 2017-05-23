@@ -1,16 +1,6 @@
 ﻿namespace CreditCard
 
-
-
-
-
-
-
-
-
-
-
-
+type CardNumber = string
 
 module VISA =
   let name = "VISA"
