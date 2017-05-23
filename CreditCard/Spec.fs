@@ -9,15 +9,18 @@ module Spec =
     member this.First = first
     member this.Last = last
 
-  module Prefix =
-    type t = string -> CardNumber -> bool
-    let Matches (prefix: string) (s: CardNumber) =
-      s.StartsWith prefix
-    let OfPrefixes(prefixes: string list) =
-      List.map (fun prefix -> Matches prefix) prefixes
+  let Matches (specs: Matcher list) (s: CardNumber) =
+    let rec matches specs s =
+      match specs with
+        | [] -> false
+        | hd::tail ->
+          if hd s then true else matches tail s
+    matches specs s
 
-  module PrefixRange =
-    type t = NumberRange -> int ->  CardNumber -> bool
-    let Matches (range: NumberRange) (len: int) (s: CardNumber) =
-      let prefix = (int) (s.[0..len-1])
-      range.Matches(prefix)
+  let StartsWith (prefix: string) (s: CardNumber) = s.StartsWith prefix
+  let StartsWithOne (prefixes: string list) (s: CardNumber) =
+    Matches (List.map (fun prefix -> StartsWith prefix) prefixes) s
+  
+  let RangeOfDigits (range: NumberRange) (len: int) (s: CardNumber) =
+    let prefix = (int) (s.[0..len-1])
+    range.Matches(prefix)
