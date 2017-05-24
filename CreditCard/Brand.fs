@@ -16,5 +16,5 @@ module Brand =
   let VISA = MakeCardBrand "VISA" [StartsWith "4"]
   let MasterCard = MakeCardBrand "MakeCard" [StartsWith "5"]
   let AmericanExpress = MakeCardBrand "Amex" [StartsWithOne ["34"; "37"]]
-  let JCB = MakeCardBrand "JCB" [RangeOfDigits (NumberRange(3528, 3589)) 4]
-  let DinersClub = MakeCardBrand "Diners Club" (List.append [StartsWithOne ["3095"; "36"]] [RangeOfDigits (NumberRange(300, 300)) 3; RangeOfDigits (NumberRange(38, 39)) 2])
+  let JCB = MakeCardBrand "JCB" [RangeOfDigits (NumberRange(3528, 3589), 4)]
+  let DinersClub = MakeCardBrand "Diners Club" [ (StartsWithOne ["3095"; "36"]); (RangeOfDigitsOne [(NumberRange(300, 305), 3); (NumberRange(38, 39), 2)]) ]
