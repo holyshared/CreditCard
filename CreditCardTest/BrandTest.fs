@@ -31,3 +31,8 @@ type BrandTest() =
     Assert.IsTrue(DinersClub.Matches("365693******04"))
     Assert.IsTrue(DinersClub.Matches("385693******04"))
     Assert.IsTrue(DinersClub.Matches("395693******04"))
+
+  [<Test>]
+  member x.TestDetectFrom() =
+    Assert.IsTrue(DetectFrom [VISA] "411111********11")
+    Assert.IsFalse(DetectFrom [VISA] "348282*******05")
