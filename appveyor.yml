@@ -17,6 +17,19 @@ nuget:
 
 deploy:
   - provider: NuGet
+    on:
+      appveyor_repo_tag: true
     api_key:
       secure: QUWvYraR0a9U/rMnQqjYZDuo9ZTOXK9bAiwtQGw3PS67k467JI0DqZwCB6C/GUo2
     artifact: /^CreditCard(.+)\.nupkg$/
+
+  - provider: Github
+    release: CreditCard-v$(appveyor_build_version)
+    description: 'Release description'
+    auth_token:
+      secure: QVr281KEblDYeDlKbF7NOJEhHPcX8RgMNTIlCM4TGxHFcpuSZvvUi9e4F3DSgx45
+    artifact: /^CreditCard(.+)\.nupkg$/
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true
