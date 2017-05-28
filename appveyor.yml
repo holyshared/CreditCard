@@ -14,3 +14,9 @@ artifacts:
 nuget:
   account_feed: true
   project_feed: true
+
+deploy:
+  - provider: NuGet
+    api_key:
+      secure: QUWvYraR0a9U/rMnQqjYZDuo9ZTOXK9bAiwtQGw3PS67k467JI0DqZwCB6C/GUo2
+    artifact: /^CreditCard(.+)\.nupkg$/
