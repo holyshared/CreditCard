@@ -1,25 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="状態: fsharp-example">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CreditCard/AssemblyInfo.fs">
     <Files>
-      <File FileName="CreditCardTest/BrandTest.fs" Line="13" Column="5" />
+      <File FileName="CreditCardTest/BrandTest.fs" Line="1" Column="1" />
       <File FileName="CreditCardTest/packages.config" Line="1" Column="1" />
-      <File FileName="CreditCard/Spec.fs" Line="22" Column="1" />
-      <File FileName="CreditCard/Brand.fs" Line="53" Column="5" />
+      <File FileName="CreditCard/Spec.fs" Line="1" Column="1" />
+      <File FileName="CreditCard/Brand.fs" Line="1" Column="1" />
       <File FileName="状態: fsharp-example" />
+      <File FileName="CreditCard/AssemblyInfo.fs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="CreditCard" expanded="True" selected="True">
-            <Node name="CreditCardTest" expanded="True">
-              <Node name="CreditCard" expanded="True">
-                <Node name="Tests" expanded="True">
-                  <Node name="BrandTest" expanded="True" />
-                  <Node name="SpecTest" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="CreditCard" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
