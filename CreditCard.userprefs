@@ -1,13 +1,25 @@
-﻿<Properties StartupConfiguration="{1E615D30-32D2-41B9-A8BE-754B6082CC8D}|単体テスト">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CreditCard/Brand.fs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="状態: fsharp-example">
     <Files>
+      <File FileName="CreditCardTest/BrandTest.fs" Line="13" Column="5" />
+      <File FileName="CreditCardTest/packages.config" Line="1" Column="1" />
+      <File FileName="CreditCard/Spec.fs" Line="22" Column="1" />
+      <File FileName="CreditCard/Brand.fs" Line="53" Column="5" />
       <File FileName="状態: fsharp-example" />
-      <File FileName="CreditCard/Brand.fs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="CreditCard" expanded="True" selected="True" />
+          <Node name="CreditCard" expanded="True" selected="True">
+            <Node name="CreditCardTest" expanded="True">
+              <Node name="CreditCard" expanded="True">
+                <Node name="Tests" expanded="True">
+                  <Node name="BrandTest" expanded="True" />
+                  <Node name="SpecTest" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
@@ -18,5 +30,4 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.CreditCardTest PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
