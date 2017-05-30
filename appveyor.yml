@@ -23,7 +23,7 @@ deploy:
       secure: QUWvYraR0a9U/rMnQqjYZDuo9ZTOXK9bAiwtQGw3PS67k467JI0DqZwCB6C/GUo2
     artifact: /^CreditCard(.+)\.nupkg$/
 
-  - provider: Github
+  - provider: GitHub 
     release: CreditCard-v$(appveyor_build_version)
     description: 'Release description'
     auth_token:
