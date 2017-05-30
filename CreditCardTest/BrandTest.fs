@@ -13,7 +13,14 @@ type BrandTest() =
 
   [<Test>]
   member x.TestMasterCardMatches() =
-    Assert.IsTrue(MasterCard.Matches("555555********44"))
+    Assert.IsTrue(MasterCard.Matches("510000**********"))
+    Assert.IsTrue(MasterCard.Matches("520000**********"))
+    Assert.IsTrue(MasterCard.Matches("559999**********"))
+
+    Assert.IsTrue(MasterCard.Matches("222100**********"))
+    Assert.IsTrue(MasterCard.Matches("232100**********"))
+    Assert.IsTrue(MasterCard.Matches("272099**********"))
+
     Assert.IsFalse(MasterCard.Matches("4111************"))
 
   [<Test>]

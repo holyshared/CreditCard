@@ -31,8 +31,8 @@ module Spec =
 
   let RangeOfDigits (spec: NumberRange * int) (s: CardNumber) =
     let range, len = spec
-    let prefix = (int) (s.[0..len-1])
-    range.Matches(prefix)
+    let prefix = (s.[0..len-1]).Replace("*", "0") // FIXME Fill 0 except numbers
+    range.Matches((int) prefix)
 
   let RangeOfDigitsOne (specs: (NumberRange * int) list) (s: CardNumber) =
     let matchers = List.map (fun spec -> RangeOfDigits spec) specs

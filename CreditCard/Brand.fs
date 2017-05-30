@@ -28,10 +28,21 @@ module Brand =
     NumberDigits [4; 4; 4; 4] |>
     PrefixRules (MustBe (StartsWith "4"))
 
-  let MasterCard = 
-    Create "MasterCard" |>
-    NumberDigits [4; 4; 4; 4] |>
-    PrefixRules (MustBe (StartsWith "5"))
+  (*
+    Current         : 510000 – 559999
+    After July 2017 : 222100 – 272099
+
+    http://newsroom.mastercard.com/asia-pacific/ja/news-briefs/bin-range/
+  *)
+  let MasterCard =
+    let rangeRules = [
+      (NumberRange(510000, 559999), 6);
+      (NumberRange(222100, 272099), 6);
+    ]
+    let rule = RangeOfDigitsOne rangeRules
+    Create "MasterCard"
+      |> NumberDigits [4; 4; 4; 4]
+      |> PrefixRules [rule]
 
   let AmericanExpress =
     Create "Amex" |> 
