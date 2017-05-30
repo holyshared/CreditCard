@@ -9,8 +9,8 @@ open System.Reflection
 [<assembly: AssemblyCopyright("${AuthorCopyright}")>]
 [<assembly: AssemblyTrademark("")>]
 
-[<assembly: AssemblyVersion("0.1.1.*")>]
-[<assembly: AssemblyFileVersion("0.1.1.*")>]
+[<assembly: AssemblyVersion("0.2.0.*")>]
+[<assembly: AssemblyFileVersion("0.2.0.*")>]
 
 //[<assembly: AssemblyDelaySign(false)>]
 //[<assembly: AssemblyKeyFile("")>]
