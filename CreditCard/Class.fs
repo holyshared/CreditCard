@@ -1,10 +1,10 @@
 ﻿//
-// Core.fs
+// Class.fs
 //
 // Author:
-//       Noritaka Horio <holy.shared.design@gmail.com>
+//       holyshared <>
 //
-// Copyright (c) 2017 Noritaka Horio
+// Copyright (c) 2017 ${CopyrightHolder}
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,15 +24,3 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-namespace CreditCard
-
-module Core =
-  type CardNumber = string
-
-  type FormattedCardNumber = string
-
-  type NumberRange(first: int, last:int) =
-    member this.Matches (num: int) =
-      num >= first && num <= last
-    member this.First = first
-    member this.Last = last
