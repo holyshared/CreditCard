@@ -24,15 +24,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-namespace CreditCard
+module CreditCard.Core
 
-module Core =
-  type CardNumber = string
+type CardNumber = string
 
-  type FormattedCardNumber = string
+type FormattedCardNumber = string
 
-  type NumberRange(first: int, last:int) =
-    member this.Matches (num: int) =
-      num >= first && num <= last
-    member this.First = first
-    member this.Last = last
+type NumberRange(first: int, last:int) =
+  member this.Matches (num: int) =
+    num >= first && num <= last
+  member this.First = first
+  member this.Last = last
