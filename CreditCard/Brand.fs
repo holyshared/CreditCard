@@ -46,13 +46,10 @@ let Create (name: string) (digits: IDigits) (specs: Matcher list) = {
 let NumberDigits (digits: int list) f = f (Digits digits)
 let PrefixRules (specs: Matcher list) f = f specs
 
-let MustBe (m: Matcher) = [m]
-let Or (m: Matcher) (specs : Matcher list) = m::specs
-
 let VISA =
   Create "VISA" |>
   NumberDigits [4; 4; 4; 4] |>
-  PrefixRules (MustBe (StartsWith "4"))
+  PrefixRules [StartsWith "4"]
 
 (*
   Current         : 510000 – 559999
@@ -73,20 +70,20 @@ let MasterCard =
 let AmericanExpress =
   Create "Amex" |> 
   NumberDigits [4; 6; 5] |>
-  PrefixRules (MustBe (StartsWithOne ["34"; "37"]))
+  PrefixRules [StartsWithOne ["34"; "37"]]
 
 let JCB =
   Create "JCB" |> 
   NumberDigits [4; 4; 4; 4] |>
-  PrefixRules (MustBe (RangeOfDigits (NumberRange(3528, 3589), 4)))
+  PrefixRules [RangeOfDigits (NumberRange(3528, 3589), 4)]
 
 let DinersClub =
   Create "Diners Club" |> 
   NumberDigits [4; 6; 4] |>
-  PrefixRules (
-    MustBe (StartsWithOne ["3095"; "36"]) |>
-      Or (RangeOfDigitsOne [(NumberRange(300, 305), 3); (NumberRange(38, 39), 2)])
-  )
+  PrefixRules [
+    (StartsWithOne ["3095"; "36"]);
+    (RangeOfDigitsOne [(NumberRange(300, 305), 3); (NumberRange(38, 39), 2)])
+  ]
 
 let SupportBrands = [VISA; MasterCard; AmericanExpress; JCB; DinersClub]
 
