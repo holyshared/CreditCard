@@ -35,3 +35,9 @@ type NumberRange(first: int, last:int) =
     num >= first && num <= last
   member this.First = first
   member this.Last = last
+
+let RangeOfBIN (first: int, last: int) =
+  if ((string) first).Length = ((string) last).Length then
+    raise (System.ArgumentException("The range of BIN is invalid"))
+  else
+    NumberRange(first, last)
