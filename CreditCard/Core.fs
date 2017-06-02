@@ -36,8 +36,16 @@ type NumberRange(first: int, last:int) =
   member this.First = first
   member this.Last = last
 
+type BINRange(first: int, last:int) =
+  let range = NumberRange(first, last)
+  let numberOfDigits = (string first).Length
+  member this.Matches (num: int) = range.Matches num
+  member this.First = range.First
+  member this.Last = range.Last
+  member this.NumberOfDigits = numberOfDigits
+
 let RangeOfBIN (first: int, last: int) =
-  if ((string) first).Length = ((string) last).Length then
+  if not (((string) first).Length = ((string) last).Length) then
     raise (System.ArgumentException("The range of BIN is invalid"))
   else
-    NumberRange(first, last)
+    BINRange(first, last)
