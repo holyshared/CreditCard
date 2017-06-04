@@ -46,9 +46,6 @@ let MatchAny (specs: Matcher list) (s: CardNumber) =
         if hd s then true else matches tail s
   matches specs s
 
-let And (m1: Matcher) (m2: Matcher) (s: CardNumber) =
-  if m1 s then m2 s else false
-
 let StartsWith (prefix: string) (s: CardNumber) = s.StartsWith prefix
 
 let StartsWithOne (prefixes: string list) (s: CardNumber) =
