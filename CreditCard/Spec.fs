@@ -31,7 +31,12 @@ open Core
 type Matcher = CardNumber -> bool
 
 let MatchAll (specs: Matcher list) (s: CardNumber) =
-  List.forall (fun m -> m s) specs
+  let rec matches specs s =
+    match specs with
+      | [] -> true
+      | hd::tail ->
+        if hd s then matches tail s else false
+  matches specs s
 
 let MatchAny (specs: Matcher list) (s: CardNumber) =
   let rec matches specs s =
