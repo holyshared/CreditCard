@@ -34,25 +34,17 @@ type IBrand =
   abstract member Matches : CardNumber -> bool
   abstract member Format : CardNumber -> string
  
-let Create (name: string) (digits: IDigits) (specs: Matcher list) = {
+let Create (name: string) (digits: IDigits) (spec: Matcher) = {
   new IBrand with
     member this.Name with get () = name
-    member this.Matches(s: CardNumber) =
-      let matcher = And (MatchAll [(LengthEquals digits)]) (MatchAny specs)
-      matcher s
+    member this.Matches(s: CardNumber) = spec s
     member this.Format(s: CardNumber) = digits.Format(s)
   }
 
-let NumberDigits (digits: int list) f = f (Digits digits)
-let PrefixRules (specs: Matcher list) f = f specs
-
-let MustBe (m: Matcher) = [m]
-let Or (m: Matcher) (specs : Matcher list) = m::specs
-
 let VISA =
-  Create "VISA" |>
-  NumberDigits [4; 4; 4; 4] |>
-  PrefixRules (MustBe (StartsWith "4"))
+  let digits = Digits [4; 4; 4; 4]
+  let matcher = And (LengthEquals digits) (StartsWith "4")
+  Create "VISA" digits matcher
 
 (*
   Current         : 510000 – 559999
@@ -61,32 +53,26 @@ let VISA =
   http://newsroom.mastercard.com/asia-pacific/ja/news-briefs/bin-range/
 *)
 let MasterCard =
-  let rangeRules = [
-    (NumberRange(510000, 559999), 6);
-    (NumberRange(222100, 272099), 6);
-  ]
-  let rule = RangeOfDigitsOne rangeRules
-  Create "MasterCard"
-    |> NumberDigits [4; 4; 4; 4]
-    |> PrefixRules [rule]
+  let binRule = MatchAny ([RangeOfDigitsOne [(510000, 559999); (222100, 272099)]])
+  let digits = Digits [4; 4; 4; 4]
+  let matcher = And (LengthEquals digits) binRule
+  Create "MasterCard" digits matcher
 
 let AmericanExpress =
-  Create "Amex" |> 
-  NumberDigits [4; 6; 5] |>
-  PrefixRules (MustBe (StartsWithOne ["34"; "37"]))
+  let digits = Digits [4; 6; 5]
+  let matcher = And (LengthEquals digits) (MatchAny [StartsWithOne ["34"; "37"]])
+  Create "Amex" digits matcher
 
 let JCB =
-  Create "JCB" |> 
-  NumberDigits [4; 4; 4; 4] |>
-  PrefixRules (MustBe (RangeOfDigits (NumberRange(3528, 3589), 4)))
+  let digits = Digits [4; 4; 4; 4]
+  let matcher = And (LengthEquals digits) (MatchAny [RangeOfDigits (3528, 3589)])
+  Create "JCB" digits matcher
 
 let DinersClub =
-  Create "Diners Club" |> 
-  NumberDigits [4; 6; 4] |>
-  PrefixRules (
-    MustBe (StartsWithOne ["3095"; "36"]) |>
-      Or (RangeOfDigitsOne [(NumberRange(300, 305), 3); (NumberRange(38, 39), 2)])
-  )
+  let digits = Digits [4; 6; 4]
+  let binStartWith = MatchAny [(StartsWithOne ["3095"; "36"]); (RangeOfDigitsOne [(300, 305); (38, 39)])]
+  let matcher = And (LengthEquals digits) binStartWith
+  Create "Diners Club" digits matcher
 
 let SupportBrands = [VISA; MasterCard; AmericanExpress; JCB; DinersClub]
 

@@ -30,8 +30,28 @@ type CardNumber = string
 
 type FormattedCardNumber = string
 
+type 'a IRange =
+  abstract member First: 'a
+  abstract member Last: 'a
+  abstract member Contains: num: 'a -> bool
+
 type NumberRange(first: int, last:int) =
-  member this.Matches (num: int) =
-    num >= first && num <= last
-  member this.First = first
-  member this.Last = last
+  interface int IRange with
+    member this.First with get () = first
+    member this.Last with get () = last
+    member this.Contains(num: int) =
+      num >= first && num <= last
+
+type BINRange(first: int, last:int) =
+  let range = NumberRange(first, last)
+  let numberOfDigits = (string first).Length
+  member this.Contains (num: int) = (range :> int IRange).Contains(num)
+  member this.First = (range :> int IRange).First
+  member this.Last = (range :> int IRange).Last
+  member this.NumberOfDigits = numberOfDigits
+
+let RangeOfBIN (first: int, last: int) =
+  if not (((string) first).Length = ((string) last).Length) then
+    raise (System.ArgumentException("The range of BIN is invalid"))
+  else
+    BINRange(first, last)
