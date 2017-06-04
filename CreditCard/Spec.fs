@@ -30,10 +30,6 @@ open Core
 
 type Matcher = CardNumber -> bool
 
-let Range (scope: int * int) =
-  let first, last = scope
-  NumberRange(first, last)
-
 let MatchAll (specs: Matcher list) (s: CardNumber) =
   List.forall (fun m -> m s) specs
 
@@ -54,13 +50,14 @@ let StartsWithOne (prefixes: string list) (s: CardNumber) =
   let matchers = (List.map (fun prefix -> StartsWith prefix) prefixes)
   MatchAny matchers s
 
-let RangeOfDigits (spec: NumberRange * int) (s: CardNumber) =
-  let range, len = spec
-  let prefix = (s.[0..len-1]).Replace("*", "0") // FIXME Fill 0 except numbers
-  range.Matches((int) prefix)
+let RangeOfDigits (range: int * int) (s: CardNumber) =
+  let scope = RangeOfBIN range
+  let at = scope.NumberOfDigits - 1
+  let prefix = (s.[0..at]).Replace("*", "0") // FIXME Fill 0 except numbers
+  scope.Contains((int) prefix)
 
-let RangeOfDigitsOne (specs: (NumberRange * int) list) (s: CardNumber) =
-  let matchers = List.map (fun spec -> RangeOfDigits spec) specs
+let RangeOfDigitsOne (ranges: (int * int) list) (s: CardNumber) =
+  let matchers = List.map (fun range -> RangeOfDigits range) ranges
   MatchAny matchers s
 
 type IDigits =

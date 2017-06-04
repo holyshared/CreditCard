@@ -59,8 +59,8 @@ let VISA =
 *)
 let MasterCard =
   let rangeRules = [
-    (NumberRange(510000, 559999), 6);
-    (NumberRange(222100, 272099), 6);
+    (510000, 559999);
+    (222100, 272099);
   ]
   let rule = RangeOfDigitsOne rangeRules
   Create "MasterCard"
@@ -75,14 +75,14 @@ let AmericanExpress =
 let JCB =
   Create "JCB" |> 
   NumberDigits [4; 4; 4; 4] |>
-  PrefixRules [RangeOfDigits (NumberRange(3528, 3589), 4)]
+  PrefixRules [RangeOfDigits (3528, 3589)]
 
 let DinersClub =
   Create "Diners Club" |> 
   NumberDigits [4; 6; 4] |>
   PrefixRules [
     (StartsWithOne ["3095"; "36"]);
-    (RangeOfDigitsOne [(NumberRange(300, 305), 3); (NumberRange(38, 39), 2)])
+    (RangeOfDigitsOne [(300, 305); (38, 39)])
   ]
 
 let SupportBrands = [VISA; MasterCard; AmericanExpress; JCB; DinersClub]
