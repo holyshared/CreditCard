@@ -12,6 +12,6 @@
     <description>Credit card detection</description>
     <releaseNotes>Credit card detection</releaseNotes>
     <copyright>Copyright 2017 Noritaka Horio</copyright>
-    <tags>F# Credit card</tags>
+    <tags>F#, credit card, detect</tags>
   </metadata>
 </package>
