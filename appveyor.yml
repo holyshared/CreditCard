@@ -1,5 +1,4 @@
 configuration: Release
-skip_tags: true
 
 before_build:
   - nuget restore
@@ -24,9 +23,10 @@ deploy:
       secure: QUWvYraR0a9U/rMnQqjYZDuo9ZTOXK9bAiwtQGw3PS67k467JI0DqZwCB6C/GUo2
     artifact: /^CreditCard(.+)\.nupkg$/
 
-  - provider: GitHub 
-    release: CreditCard-v$(appveyor_build_version)
-    description: 'Release description'
+  - provider: GitHub
+    tag: $(appveyor_repo_tag_name)
+    release: $(appveyor_repo_tag_name)
+    description: '$(appveyor_repo_tag_name) released'
     auth_token:
       secure: QVr281KEblDYeDlKbF7NOJEhHPcX8RgMNTIlCM4TGxHFcpuSZvvUi9e4F3DSgx45
     artifact: /^CreditCard(.+)\.nupkg$/
